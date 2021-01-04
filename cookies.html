@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        nav {
+            font-size: 25px;
+        }
+
+    </style>
+
+    <script language="javascript" type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Assignment 7 : Cookies</h1>
+        <hr>
+        <nav>
+            <a href="index.html" target="_blank"><b>Home</b></a>
+        </nav>
+        <hr>
+    </center>
+
+
+    <h3>[My Settings]</h3>
+    <hr><br>
+    <h2>User Preference</h2>
+ 
+    <center>
+        <h2>Skin:</h2>
+        <h2 id="skinselect">User Chooses</h2>
+    </center>
+    <br><br><br>
+    <form name='f'>
+        <h3>change skin:</h3>
+        <input id="myskin" type="text" name="myskin">
+        <h3>(Styles Include - cookiesbluewood, cookieswood, cookiesbrick)</h3>
+        <br><br>
+        <input id="button" type='button' value="save">
+
+    </form>
+
+    <script>
+        getcookies();
+        
+        var skin = "";
+
+        //user types skin chpice and clicks
+        var button = document.getElementById("button").addEventListener("click", saveskin);
+
+        //save the users choice 
+        //name is universal but value changes bluewood,wood,brick
+        var name = null;
+        var value = null;
+
+        function savecookie(name, value) {
+            document.cookie = name + "=" + value;
+        }
+        //in the function you are getting the cookies
+        function getcookies() {
+            var cookiearray = document.cookie.split(';');
+            for (i = 0; i < cookiearray.length; i++) {
+                console.log("cookienumber", i, ":" , cookiearray[i]);
+                
+                name = cookiearray[i].substring(0, cookiearray[i].indexOf('=')).replace(/\s+/g, '');
+
+                value = cookiearray[i].substring(cookiearray[i].indexOf('=') + 1);
+
+                console.log('name of cookie number', i, "is ", name);
+                console.log("value of cookie number", i, "is ", value);
+
+                if (name == "backgroundimage") {
+
+                    document.body.background = "images/" + value + ".jpg";
+                    console.log("images/" + value + ".jpg");
+                }
+               
+            }
+        }
+
+
+
+        function saveskin() {
+            var myskin = document.getElementById('myskin').value;
+            console.log(myskin);
+            
+            savecookie("backgroundimage",myskin);
+
+            document.getElementById("skinselect").innerHTML = myskin;
+
+            if (myskin == 'cookiesbluewood') {
+                document.body.background = 'images/cookiesbluewood.jpg';
+            } else if (myskin == 'cookieswood') {
+                document.body.background = 'images/cookieswood.jpg';
+            } else if (myskin == 'cookiesbrick') {
+                document.body.background = 'images/cookiesbrick.jpg';
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

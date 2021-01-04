@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment 5 :Alert CISW 400 CRC</title>
+    <meta charset="utf-8">
+
+    <style>
+        h1 {
+            color: blue;
+            font-size: 50px;
+        }
+
+        nav {
+            font-size: 25px;
+        }
+
+        main {
+         
+            background-color: orange;
+            /*margin-right: 2000px;*/
+            padding-left: 40px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        input {
+            height: 20px;
+        }
+
+        button {
+            float: right;
+            margin-right: 50px;
+            font-size: 25px;
+        } 
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Assignment 5 Smart Form :Alert</h1>
+    <nav>
+
+        <a href="index.html">Home</a>
+
+    </nav>
+    <br><br>
+
+    <main>
+        
+        <h2>Enter Personal Info:</h2>
+
+        <div>
+            <p>City <input type="text" id="city" onblur="checkcity()">
+
+            </p>
+        </div>
+
+        <div>
+            <p>State <input type="text" size="2" id="state" onchange="checkstate()"></p>
+        </div>
+
+        <div>
+            <p>Zip Code <input type="text" id="zipcode" onchange="checkzipcode()"></p>
+        </div>
+
+        <div>
+            <p>Email <input type="text" id="email" onchange="checkemail()"></p>
+        </div>
+
+
+        <div>
+            <button>Submit</button>
+        </div>
+            
+    </main>
+
+    <script>
+        function checkcity() {
+            var city = document.getElementById('city');
+            console.log(city.value.length);
+
+            if (city.value.length == 0) {
+                alert('city field must not be empty');
+
+            }
+            //city.style.backgroundColor = 'red';
+            //var cityerror = document.getElementById('cityerror');
+            //cityerror.innerHTML = 'City Field error';
+
+        }
+
+        function checkstate() {
+            // variable pointing to state input box
+            var state = document.getElementById('state');
+            console.log(state.value.length);
+            //if not equal to 2 then alert
+            if (state.value.length != 2) {
+                alert('State must be two characters');
+            }
+
+            //new variable uppercase
+            var uppercase = state.value.toUpperCase();
+            console.log(uppercase);
+
+            //if not alphabet give alert
+            if (!(uppercase.charCodeAt(0) >= 65 && uppercase.charCodeAt(0) <= 91)) {
+                alert('State not valid');
+            }
+            if (!(uppercase.charCodeAt(1) >= 65 && uppercase.charCodeAt(1) <= 91)) {
+                alert('State not valid');
+            }
+            //convert to uppcase
+            state.value = uppercase;
+        }
+
+        function checkzipcode() {
+            var zipcode = document.getElementById('zipcode');
+            console.log(zipcode.value.length);
+            //check if length is 5 characters long and 
+            if (zipcode.value.length != 5 || isNaN(zipcode.value) ) {
+                alert('zip code is 5 numbers');
+            }
+
+            // check if zip code is all numbers
+            /*if (isNaN(zipcode.value)) {
+                alert('Enter numbers');
+            }*/
+        }
+
+
+        function checkemail() {
+            // variable pointing to email input box
+            var email = document.getElementById('email');
+            console.log(email.value.length);
+
+            // variable for @ sign
+            var at_sign = email.value.search(/@/);
+            console.log(at_sign);
+
+            // searching for at least 3 characters long and includes @
+            if (email.value.length < 3 || at_sign < 1) {
+                alert('Invalid Email');
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title>CISW400 Feature Detection</title>
+    <!-- Eshani Fall2020 -->
+    <script language="JavaScript">
+        console.log(document.images);
+        
+        if (document.images) {
+            
+        
+        // Variable Declaration
+        var indeed1 = new Image();
+        var indeedtext = new Image();
+        var linkedin1 = new Image();
+        var linkedintext = new Image();
+        var monster1 = new Image();
+        var monstertext = new Image();
+        var crc1 = new Image();
+        var crctext = new Image();
+        var crcborder = new Image();
+        /*var crcborder = 
+        document.getElementById("crc").style.border = "thick solid #0000FF";*/
+
+        /*window.onload=function(){
+            console.log("page has loaded");
+            var crcimageborder = document.getElementById('crc');
+            crcimageborder.addEventListener('mouseover', mouseovercrc);
+            crcimageborder.addEventListener('mouseout', mouseoutcrc);
+            
+            function mouseoutcrc() {
+                console.log('hey mouse over on crc');
+                crcimageborder.style.border = "";
+                crcimageborder.src="crc1.png";
+                
+            }
+            function mouseovercrc() {
+                console.log('hey mouse over on crc');
+                crcimageborder.style.border = "thick solid #0000FF";
+                crcimageborder.src="crc1.png";
+                
+            }
+            
+        } */
+
+
+
+        // Assign variable references to the actual image files
+        indeed1.src = "images/indeed1.png";
+        indeedtext.src = "images/indeedtext.png";
+        linkedin1.src = "images/linkedin1.jpg";
+        linkedintext.src = "images/linkedintext.png";
+        monster1.src = "images/monster1.jpg";
+        monstertext.src = "images/monstertext.png";
+        crc1.src = "images/crc1.png";
+        crctext.src = "images/crctext.png";
+        }
+    </script>
+    <style>
+        /*#crc:hover {
+            border: 2px solid blue;
+            opacity: 1;
+            border-radius: 100px;
+            background-color: bisque;
+        } */
+
+        .image-shadow {
+            box-shadow: 5px 10px #888888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1><u>JavaScript Feature Detection (3b)</u></h1>
+
+    <nav>
+       
+            <a href="index.html">Home</a>
+                
+    </nav>
+        </center>
+    <hr>
+    <center>
+        <!-- JavaScript Rollover within A LINK -->
+        <a href="https://www.indeed.com/" target="_blank" onmouseover="document.indeed_button.src=indeedtext.src" onmouseout="document.indeed_button.src=indeed1.src">
+            <img name="indeed_button" border="1" src="images/indeed1.png" height="300" width="350" class="image-shadow">
+            <!-- Initial Image Link -->
+        </a>
+
+
+
+        <a href="https://www.linkedin.com/" target="_blank" onmouseover="document.linkedin_button.src=linkedintext.src" onmouseout="document.linkedin_button.src=linkedin1.src">
+            <img name="linkedin_button" src="images/linkedin1.jpg" height="300" width="350">
+            <!-- Initial Image Link -->
+        </a>
+
+
+
+        <a href="https://www.monster.com/" target="_blank" onmouseover="document.monster_button.src=monstertext.src" onmouseout="document.monster_button.src=monster1.src">
+            <img name="monster_button" border="1" src="images/monster1.jpg" height="300" width="350" class="image-shadow">
+        </a>
+
+        <br><br><br><br><br>
+
+        <a href="https://crc.losrios.edu/" target="_blank" onmouseover="document.monster_button.style.opacity=0.2; document.indeed_button.style.opacity=0.2;document.linkedin_button.style.opacity=0.2;document.crc_button.src=crc1.src; document.crc_button.style.border='thick solid #0000FF'" onmouseout="document.monster_button.style.opacity=1;document.indeed_button.style.opacity=1;document.linkedin_button.style.opacity=1;document.monster_button.style.opacity=document.crc_button.style.opacity=1;document.crc_button.src=crc1.src;document.crc_button.style.border=''">
+            <img name="crc_button" border="0" src="images/crc1.png" height="100" width="500" id="crc">
+            <!-- Initial Image Link -->
+        </a>
+    </center>
+
+</body></html>

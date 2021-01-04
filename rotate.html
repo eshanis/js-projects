@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment 4 CISW 400 CRC</title>
+    <meta charset="utf-8">
+    <style>
+        #borderbox {
+            border-radius: 25px;
+            border: 0.5px solid lightgray;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+            background-color: lightgray;
+            box-shadow: 2px 2px 2px 2px black;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+
+<body onload="rotate()">
+    <center>
+        <h1>Rotating Banner <font color="red"> <u>Assignment 4 </u></font>CISW 400 CRC</h1>
+        <a href="https://losrios.edu/" target="_blank" id="newurl">
+            <img src="heroguitar.jpg" id="banner" alt="banner image">
+        </a>
+         <nav>
+       
+            <a href="index.html">Home</a>
+                
+    </nav>
+    </center>
+    <script>
+        var images = ["heroguitar.jpg", "heromugs.jpg", "heroroad.jpg"];
+        //document.getElementById("banner").src = images[2];
+
+        var urls = ["https://losrios.edu/", "https://www.stanford.edu/", "https://www.berkeley.edu/"];
+
+        var arraylength = images.length;
+        console.log("the image length is:", arraylength);
+
+        var currentimage = 0;
+
+
+        function rotate() {
+            //console.log("rotate function called");
+
+
+
+            if (document.images) {
+                currentimage = currentimage + 1;
+
+                currentimage = Math.floor(Math.random() * arraylength);
+                console.log("random value is", currentimage);
+
+                if (currentimage == arraylength) {
+                    currentimage = 0;
+                }
+
+                document.getElementById('banner').src = images[currentimage];
+                document.getElementById('newurl').href = urls[currentimage];
+                setTimeout(rotate, 2000);
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+<br>
+<footer>
+    <center>
+        <h2>Extra Credit: Images appear in random order</h2> <br><br>
+
+        <code id="borderbox"> currentimage=Math.floor(Math.random()*arraylength); </code>
+    </center>
+</footer>
+
+</html>

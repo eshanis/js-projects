@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>cisw 400 </title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        option,
+        label {
+            font-size: 20px;
+        }
+
+        select {
+            border-style: groove;
+            border-width: thick;
+            padding-right: 20px;
+            margin-right: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+
+        hr {
+            border: 1px solid red;
+        }
+
+        #img1 {
+            /*padding-right: 10px;*/
+            height: 80px;
+            width: 70px;
+            border-style: ridge;
+            margin-right: 10px;
+        }
+
+        #img2 {
+            /*padding-right: 10px;*/
+            height: 80px;
+            width: 70px;
+            border-style: ridge;
+            margin-right: 10px;
+        }
+
+        #img3 {
+            /*padding-right: 10px;*/
+            height: 80px;
+            width: 70px;
+            border-style: ridge;
+            margin-right: 10px;
+        }
+
+        #img4 {
+            /*padding-right: 10px;*/
+            height: 80px;
+            width: 70px;
+            border-style: ridge;
+            margin-right: 10px;
+        }
+
+        #bigimg {
+            height: 400px;
+            width: 500px;
+            border-style: ridge;
+            border-width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+
+        <h1>Travel Net</h1>
+
+    </center>
+
+    <hr>
+
+    <nav>
+        <center>
+            <a href="index.html" target="_blank">Home</a>
+        </center>
+    </nav>
+    <hr>
+
+    <label for="destination">Select Destination:</label><br><br>
+    <select id="destination" multiple size="3">
+
+        <option value="norway" selected>Norway</option>
+        <option value="hawaii">Hawaii</option>
+        <option value="amazon">Amazon</option>
+
+    </select>
+
+    <!--The 4 images to be shown per country, use images from country 1 as default-->
+
+    <img id="img1" src="images/norway1.jpg">
+    <img id="img2" src="images/norway2.jpg">
+    <img id="img3" src="images/norway3.jpg">
+    <img id="img4" src="images/norway4.jpg">
+    <br><br>
+    <img id="bigimg" src="images/norway1.jpg" height="400">
+
+
+    <script>
+        document.getElementById("img1").addEventListener("mouseover", mo);
+        document.getElementById("img2").addEventListener("mouseover", mo);
+        document.getElementById("img3").addEventListener("mouseover", mo);
+        document.getElementById("img4").addEventListener("mouseover", mo);
+
+        document.getElementById("destination").addEventListener("click", click);
+
+
+        function mo() {
+            document.getElementById("bigimg").src = this.src;
+        }
+
+
+        function click() {
+            console.log(this.id);
+            console.log(this.value);
+
+            if (this.value == "norway") {
+                console.log("if checked");
+
+                document.getElementById("img1").src = "images/norway1.jpg";
+
+                document.getElementById("img2").src = "images/norway2.jpg";
+
+                document.getElementById("img3").src =
+                    "images/norway3.jpg";
+
+                document.getElementById("img4").src =
+                    "images/norway4.jpg";
+            }
+
+
+            if (this.value == "hawaii") {
+                console.log("if hawaii");
+
+                document.getElementById("img1").src = "images/hawaii1.jpg";
+
+                document.getElementById("img2").src = "images/hawaii2.jpg";
+
+                document.getElementById("img3").src = "images/hawaii3.jpg";
+
+                document.getElementById("img4").src = "images/hawaii4.jpg";
+            }
+
+
+            if (this.value == "amazon") {
+                console.log("if amazon");
+
+                document.getElementById("img1").src = "images/amazon1.jpg";
+
+                document.getElementById("img2").src = "images/amazon2.jpg";
+
+                document.getElementById("img3").src = "images/amazon3.jpg";
+
+                document.getElementById("img4").src = "images/amazon4.jpg";
+            }
+        }
+    </script>
+
+</body></html>

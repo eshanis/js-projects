@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>CISW 400 Browser Detection</title>
+
+    <script>
+        //user agent//
+        window.onload = function() {
+            console.log("hi eshani");
+
+            //check which browser//    
+            ua = navigator.userAgent;
+            console.log(ua);
+
+            chrome = ua.match(/Chrome/g);
+            console.log(chrome)
+
+            firefox = ua.match(/Firefox/g)
+            console.log(firefox)
+
+            explorer = ua.match(/Trident/g)
+            console.log(explorer)
+
+            browsername = document.getElementById("browser-name")
+
+            //change background color and text//
+
+            if (chrome) {
+                document.body.style.backgroundColor = "green";
+                document.body.style.color = "yellow";
+                position = ua.indexOf(chrome) + 7;
+                version = ua.substr(position, 4);
+                console.log(version);
+                browsername.innerHTML = chrome + " " + version;
+            }
+
+            if (firefox) {
+                document.body.style.backgroundColor = "yellow";
+                document.body.style.color = "black";
+                position = ua.indexOf(firefox) + 8;
+                version = ua.substr(position, 3);
+                console.log(version);
+                browsername.innerHTML = firefox + " " + version;
+
+            }
+
+            if (explorer) {
+                document.body.style.backgroundColor = "darkblue";
+                document.body.style.color = "white";
+                position = ua.indexOf(explorer) + 8;
+                version = ua.substr(position, 3);
+                console.log(version);
+                browsername.innerHTML = "MSIE" + " " + version;
+
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+     <center>
+        <h1><u>Assignment 3: Browser Detection</u></h1>
+
+    <nav>
+       
+            <a href="index.html">Home</a>
+                
+    </nav>
+        </center>
+    
+    <br><br>
+    <span>This page is viewed by</span> &nbsp;<b><span id=browser-name></span></b>&nbsp;browser
+    <br>
+    <hr>
+    <h2>BROWSER DOWNLOADS</h2>
+    <br>
+    <ul>
+        <li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=20335" target="_blank">MS Internet Explorer</a> - Microsoft Internet Explorer Version 8</li>
+
+        <li><a href="https://www.mozilla.org/en-US/firefox/3.0/system-requirements/" target="_blank">Firefox</a> - Mozilla Firefox 3</li>
+
+        <li><a href="https://www.google.com/chrome/" target="_blank">Chrome</a> - Google Chrome 2</li>
+    </ul>
+
+</body></html>

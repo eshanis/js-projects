@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment 5 CISW 400 CRC</title>
+    <meta charset="utf-8">
+
+    <style>
+        h1 {
+            color: blue;
+            font-size: 50px;
+        }
+
+        nav {
+            font-size: 25px;
+        }
+
+        main {
+
+            background-color: orange;
+            /*margin-right: 2000px;*/
+            padding-left: 40px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        input {
+            height: 20px;
+        }
+
+        button {
+            float: right;
+            margin-right: 50px;
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Assignment 5 Smart Form </h1>
+    <nav>
+
+        <a href="index.html">Home</a>
+
+    </nav>
+    <br><br>
+
+    <main>
+
+        <h2>Enter Personal Info:</h2>
+
+        <div>
+            <p>City <input type="text" id="city" onblur="checkcity()">
+                <span id="cityerror"></span>
+            </p>
+        </div>
+
+        <div>
+            <p>State <input type="text" size="2" id="state" onblur="checkstate()">
+                <span id="stateerror"></span>
+            </p>
+        </div>
+
+        <div>
+            <p>Zip Code <input type="text" id="zipcode" onblur="checkzipcode()">
+                <span id="zipcodeerror"></span>
+            </p>
+        </div>
+
+        <div>
+            <p>Email <input type="text" id="email" onblur="checkemail()">
+                <span id="emailerror"></span>
+            </p>
+        </div>
+
+
+        <div>
+            <button>Submit</button>
+        </div>
+
+    </main>
+
+    <script>
+        function checkcity() {
+            var city = document.getElementById('city');
+            console.log(city.value.length);
+            var cityerror = document.getElementById('cityerror');
+
+            city.style.backgroundColor = 'white';
+            cityerror.innerHTML = '';
+            if (city.value.length == 0) {
+
+                //alert('city field must not be empty');
+                city.style.backgroundColor = 'red';
+                cityerror.innerHTML = 'City Field error';
+            }
+
+        }
+
+        function checkstate() {
+            // variable pointing to state input box
+            var state = document.getElementById('state');
+            console.log(state.value.length);
+            //new variable uppercase
+            var uppercase = state.value.toUpperCase();
+            console.log(uppercase);
+            var stateerror = document.getElementById('stateerror');
+
+            state.style.backgroundColor = 'white';
+            stateerror.innerHTML = '';
+
+            //if not equal to 2 then //alert
+            if ((state.value.length != 2)) {
+                //alert('State must be two characters');
+                state.style.backgroundColor = 'red';
+                stateerror.innerHTML = 'State Field should be 2 characters';
+            }
+
+            //if not alphabet give //alert
+            if (!(uppercase.charCodeAt(0) >= 65 && uppercase.charCodeAt(0) <= 91)) {
+                //alert('State not valid');
+                state.style.backgroundColor = 'red';
+                stateerror.innerHTML = 'State Field should be 2 characters';
+            }
+            if (!(uppercase.charCodeAt(1) >= 65 && uppercase.charCodeAt(1) <= 91)) {
+                //alert('State not valid');
+                state.style.backgroundColor = 'red';
+                stateerror.innerHTML = 'State Field should be 2 characters';
+            }
+            //convert to uppcase
+            state.value = uppercase;
+        }
+
+        function checkzipcode() {
+            var zipcode = document.getElementById('zipcode');
+            console.log(zipcode.value.length);
+            var zipcodeerror = document.getElementById('zipcodeerror');
+
+            zipcode.style.backgroundColor = 'white';
+            zipcodeerror.innerHTML = '';
+
+            //check if length is 5 characters long and 
+            if (zipcode.value.length != 5 || isNaN(zipcode.value)) {
+                //alert('zip code is 5 numbers');
+                zipcode.style.backgroundColor = 'red';
+                zipcodeerror.innerHTML = 'Zip code is 5 numbers';
+            }
+
+        }
+
+
+        function checkemail() {
+            // variable pointing to email input box
+            var email = document.getElementById('email');
+            console.log(email.value.length);
+
+            // variable for @ sign
+            var at_sign = email.value.search(/@/);
+            console.log(at_sign);
+
+            var emailerror = document.getElementById('emailerror');
+
+            email.style.backgroundColor = 'white';
+            emailerror.innerHTML = '';
+
+            // searching for at least 3 characters long and includes @
+            if (email.value.length < 3 || at_sign < 1) {
+                //alert('Invalid Email');
+                email.style.backgroundColor = 'red';
+                emailerror.innerHTML = 'Invalid Email';
+            }
+        }
+    </script>
+
+
+</body></html>
